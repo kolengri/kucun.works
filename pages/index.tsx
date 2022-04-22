@@ -19,6 +19,7 @@ const TEXTS = [
 const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [checked, setIsChecked] = useState(false)
+  const [slaveMode, setSlaveMode] = useState(false)
   const [textIndex, setTextIndex] = useState(0)
   const text = TEXTS[textIndex]
 
@@ -41,8 +42,13 @@ const Home: NextPage = () => {
       </Head>
       <div className="h-screen w-full flex items-center justify-center">
         <div>
-          <div className="text-center">
-            <Image src="/alex.jpeg" width="300" height="300" alt="Alex just relaxed" className="rounded-full" />
+          <div className="text-center cursor-pointer" onClick={() => setSlaveMode((s) => !s)}>
+            {!slaveMode && (
+              <Image src="/alex.jpeg" width="300" height="300" alt="Alex just relaxed" className="rounded-full" />
+            )}
+            {slaveMode && (
+              <Image src="/alex-slave.jpeg" width="300" height="300" alt="Alex is a slave" className="rounded-full" />
+            )}
           </div>
           <h1 className="text-2xl">
             <span className="text-red-500">Alex Kucun</span> works?
