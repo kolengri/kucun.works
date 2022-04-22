@@ -36,7 +36,7 @@ const Home: NextPage = () => {
           <h1 className="text-2xl">
             <span className="text-red-500">Alex Kucun</span> works?
           </h1>
-          <p className="text-gray-500">
+          <p className="text-gray-500 h-24 w-80">
             {!checked && !isLoading && "Of course not! He is a software engineer, and He is not a slave!"}
 
             {checked &&
