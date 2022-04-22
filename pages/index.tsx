@@ -14,6 +14,7 @@ const TEXTS = [
   "Maybe He works. Although He doesn't... He is a software engineer, and He is not a slave!",
   "No, and now he doesn't want to work. He is a software engineer, and He is not a slave!",
   "Well, no...",
+  "Nope, he's watching tik tok",
 ]
 
 const Home: NextPage = () => {
