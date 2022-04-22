@@ -8,15 +8,26 @@ import Loader from "../components/Loader"
 const BUTTON_CLASSES =
   "bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded flex gap-1 items-center"
 
+const TEXTS = [
+  "Of course not! He is a software engineer, and He is not a slave!",
+  "I'm sorry, Alex Kucun is not working right now. He is a software engineer, and He is not a slave!",
+  "Maybe He works. Although He doesn't... He is a software engineer, and He is not a slave!",
+  "No, and now he doesn't want to work. He is a software engineer, and He is not a slave!",
+  "Well, no...",
+]
+
 const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [checked, setIsChecked] = useState(false)
+  const [textIndex, setTextIndex] = useState(0)
+  const text = TEXTS[textIndex]
 
   useEffect(() => {
     if (isLoading) {
       setTimeout(() => {
         setIsLoading(false)
         setIsChecked(true)
+        setTextIndex(Math.floor(Math.random() * TEXTS.length))
       }, 500)
     }
   }, [isLoading])
@@ -36,13 +47,7 @@ const Home: NextPage = () => {
           <h1 className="text-2xl">
             <span className="text-red-500">Alex Kucun</span> works?
           </h1>
-          <p className="text-gray-500 h-24 w-80">
-            {!checked && !isLoading && "Of course not! He is a software engineer, and He is not a slave!"}
-
-            {checked &&
-              !isLoading &&
-              "I'm sorry, Alex Kucun is not working right now. He is a software engineer, and He is not a slave!"}
-          </p>
+          <p className="text-gray-500 h-24 w-80">{!isLoading && text}</p>
           <div className="flex justify-center mt-3">
             <button className={BUTTON_CLASSES} onClick={() => setIsLoading(true)}>
               {isLoading && <Loader />}
